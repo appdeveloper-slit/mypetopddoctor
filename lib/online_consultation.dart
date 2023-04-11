@@ -426,7 +426,7 @@ class _OnlineConsultantState extends State<OnlineConsultant>
           onTap: () {
             STM().redirect2page(
                 ctx,
-                AppointmentDetails(
+                OnlineConsultantDetails(
                   details: list[index],
                 ));
           },

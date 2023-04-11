@@ -554,6 +554,7 @@ class _OPDAppointmentState extends State<OPDAppointment>
     );
   }
 
+
   void opdAppoinment() async {
     FormData body = FormData.fromMap({'doctor_id': Userid, 'type': 1});
     var result = await STM().postWithoutDialog(ctx, 'opd_appointment', body);

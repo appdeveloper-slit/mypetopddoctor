@@ -298,6 +298,52 @@ class _OnlineConsultantDetailsState extends State<OnlineConsultantDetails> {
                       ),
                     ),
                   ),
+                  widget.details['prescription'] == null ? Container() : widget.details['status'] == 0 ? Container() : SizedBox(height: Dim().d20,),
+                  widget.details['prescription'] == null ? Container() : widget.details['status'] == 0 ? Container() : Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Clr().borderColor.withOpacity(0.1),
+                          spreadRadius: 0.6,
+                          blurRadius: 12,
+                          offset: Offset(0, 0), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Card(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        side: BorderSide(color: Clr().borderColor),
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Prescription',
+                                style: Sty()
+                                    .mediumText
+                                    .copyWith(fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                          const Divider(),
+                          Padding(
+                            padding:  EdgeInsets.all(Dim().d8),
+                            child: Text('${widget.details['prescription']}', textAlign: TextAlign.justify,style: Sty().mediumText,),
+                          ),
+                          SizedBox(
+                            height: Dim().d12,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: 30,
                   ),
