@@ -20,6 +20,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
   late BuildContext ctx;
   List<dynamic> resultList = [];
   String? Userid;
+  bool listlength = false;
   getSession() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     setState(() {
@@ -74,9 +75,9 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: Dim().d20,),
-            resultList.length == 0 ? Container() : Text('${widget.username}',style: Sty().mediumBoldText,),
+            listlength ? Container() : Text('${widget.username}',style: Sty().mediumBoldText,),
             SizedBox(height: Dim().d20,),
-            resultList.length == 0 ? Container(height: MediaQuery.of(ctx).size.height/1.5,child: Center(child: Text('No Appointments History',style: Sty().mediumBoldText,),),) :ListView.builder(
+            listlength ? Container(height: MediaQuery.of(ctx).size.height/1.5,child: Center(child: Text('No Appointments History',style: Sty().mediumBoldText,),),) :ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
@@ -251,6 +252,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
     if(success){
       setState(() {
         resultList = result['appointment_history'];
+        resultList.isEmpty ? listlength = true : listlength = false;
       });
     }else{
       STM().errorDialog(ctx, message);

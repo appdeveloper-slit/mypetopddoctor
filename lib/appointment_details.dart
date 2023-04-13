@@ -323,9 +323,8 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                               height: 50,
                               child: ElevatedButton(
                                   onPressed: () async {
-                                    if (widget.details['appointment_type'] ==
-                                        1) {
-                                      _showDialog(widget.details['id'].toString());
+                                    if (widget.details['appointment_type'] == 1) {
+                                      status(status: 1,id: widget.details['id'].toString());
                                     } else {
                                       await Permission.camera.request();
                                       await Permission.microphone.request();
@@ -363,10 +362,8 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                               child: ElevatedButton(
                                   onPressed: () {
                                     widget.details['appointment_type'] == 1
-                                        ? status(
-                                            status: 2,
-                                            id: widget.details['id'].toString())
-                                        : _showDialog(widget.details['id'].toString());
+                                        ? status(status: 2, id: widget.details['id'].toString())
+                                        : status(status: 1,id: widget.details['id'].toString());;
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor:
@@ -451,52 +448,52 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
     }
   }
 
-  _showDialog(id) async {
-    return showDialog(
-        context: context,
-        builder: (index) {
-          return AlertDialog(
-            title: Text('Prescription', style: Sty().mediumBoldText),
-            content: Column(mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  maxLines: null,
-                  minLines: 5,
-                  style: Sty().mediumText,
-                  controller: precCtrl,
-                  textInputAction: TextInputAction.newline,
-                  keyboardType: TextInputType.multiline,
-                  decoration: Sty().TextFormFieldOutlineDarkStyle.copyWith(
-                      errorBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.zero),
-                      enabledBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.zero),
-                      focusedBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.zero),
-                      hintText: 'Enter Prescription',
-                      hintStyle: Sty().mediumText.copyWith(color: Clr().hintColor)),
-                ),
-                SizedBox(
-                  height: Dim().d12,
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Clr().primaryColor),
-                  onPressed: () {
-                    addPrecesptiopn(id);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Submit',
-                      style: Sty().mediumText.copyWith(color: Clr().white),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        });
-  }
+  // _showDialog(id) async {
+  //   return showDialog(
+  //       context: context,
+  //       builder: (index) {
+  //         return AlertDialog(
+  //           title: Text('Prescription', style: Sty().mediumBoldText),
+  //           content: Column(mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               TextField(
+  //                 maxLines: null,
+  //                 minLines: 5,
+  //                 style: Sty().mediumText,
+  //                 controller: precCtrl,
+  //                 textInputAction: TextInputAction.newline,
+  //                 keyboardType: TextInputType.multiline,
+  //                 decoration: Sty().TextFormFieldOutlineDarkStyle.copyWith(
+  //                     errorBorder: const OutlineInputBorder(
+  //                         borderRadius: BorderRadius.zero),
+  //                     enabledBorder: const OutlineInputBorder(
+  //                         borderRadius: BorderRadius.zero),
+  //                     focusedBorder: const OutlineInputBorder(
+  //                         borderRadius: BorderRadius.zero),
+  //                     hintText: 'Enter Prescription',
+  //                     hintStyle: Sty().mediumText.copyWith(color: Clr().hintColor)),
+  //               ),
+  //               SizedBox(
+  //                 height: Dim().d12,
+  //               ),
+  //               ElevatedButton(
+  //                 style: ElevatedButton.styleFrom(backgroundColor: Clr().primaryColor),
+  //                 onPressed: () {
+  //                   addPrecesptiopn(id);
+  //                 },
+  //                 child: Padding(
+  //                   padding: const EdgeInsets.all(16.0),
+  //                   child: Text(
+  //                     'Submit',
+  //                     style: Sty().mediumText.copyWith(color: Clr().white),
+  //                   ),
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       });
+  // }
 
 
   void addPrecesptiopn(id) async {

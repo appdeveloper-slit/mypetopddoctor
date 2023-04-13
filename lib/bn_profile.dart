@@ -644,7 +644,10 @@ class _MyProfileState extends State<MyProfile> {
                                   SharedPreferences sp =
                                       await SharedPreferences.getInstance();
                                   sp.setBool('is_login', false);
-                                  sp.clear();
+                                  if (sp.containsKey('date')) {
+                                  } else {
+                                    sp.clear();
+                                  }
                                   STM().finishAffinity(context, LogIn());
                                   // _addPatientDialog(ctx);
                                 },
