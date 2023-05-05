@@ -203,7 +203,7 @@ class _EductaionalInfoState extends State<EductaionalInfo> {
                             height: 350,
                             width: 450,
                             title: Text(
-                              "Select Slots",
+                              "Select Category",
                               style: Sty().mediumText.copyWith(
                                     fontSize: Dim().d14,
                                     color: Clr().hintColor,
@@ -242,8 +242,8 @@ class _EductaionalInfoState extends State<EductaionalInfo> {
                         children: [
                           Text(
                             specialityList.isNotEmpty
-                                ? 'Specialities Selected'
-                                : 'Select Specialities',
+                                ? 'Category Selected'
+                                : 'Select Category',
                             style: Sty()
                                 .mediumText
                                 .copyWith(color: const Color(0xff787882)),
@@ -263,11 +263,11 @@ class _EductaionalInfoState extends State<EductaionalInfo> {
                 // DropdownButtonHideUnderline(
                 //   child: DropdownButtonFormField(
                 //     value: specialityValue,
-                //     hint: Text('Specialities*'),
+                //     hint: Text('Category*'),
                 //     isExpanded: true,
                 //     validator: (value) {
                 //       if (value == null) {
-                //         return 'Specialities is required';
+                //         return 'Category is required';
                 //       }
                 //     },
                 //     icon: Icon(
@@ -306,11 +306,11 @@ class _EductaionalInfoState extends State<EductaionalInfo> {
                         controller: specilityCtrl,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Specialities is required';
+                            return 'Category is required';
                           }
                         },
                         decoration: Sty().TextFormFieldOutlineStyle.copyWith(
-                            hintText: 'Enter Your Specialities',
+                            hintText: 'Enter Your Category',
                             hintStyle: Sty()
                                 .mediumText
                                 .copyWith(color: Clr().hintColor)),
