@@ -273,6 +273,8 @@ class _AddPrescriptionState extends State<AddPrescription> {
         widget.details['status'] = status;
       });
       STM().successDialogWithReplace(ctx, message, Home());
+    }else{
+      STM().errorDialog(ctx, message);
     }
   }
 }

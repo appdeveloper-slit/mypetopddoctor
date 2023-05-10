@@ -258,14 +258,10 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ),
                     ),
-                    sUserProfileStatus == '1'
-                        ? Container()
-                        : SizedBox(
+                     SizedBox(
                       height: 12,
                     ),
-                    sUserProfileStatus == '1'
-                        ? Container()
-                        : InkWell(
+                     InkWell(
                       onTap: () {
                         STM().redirect2page(
                             ctx,
@@ -323,14 +319,10 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ),
                     ),
-                    sUserProfileStatus == '1'
-                        ? Container()
-                        : SizedBox(
+                     SizedBox(
                       height: 12,
                     ),
-                    sUserProfileStatus == '1'
-                        ? Container()
-                        : InkWell(
+                     InkWell(
                       onTap: () {
                         STM().redirect2page(
                             ctx,

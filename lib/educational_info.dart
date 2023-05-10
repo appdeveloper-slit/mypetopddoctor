@@ -437,7 +437,7 @@ class _EductaionalInfoState extends State<EductaionalInfo> {
         SharedPreferences sp = await SharedPreferences.getInstance();
         sp.setBool('educationalinfo', true);
         widget.Stype == 'profile'
-            ? STM().replacePage(ctx, MyProfile())
+            ? STM().back2Previous(ctx)
             : STM().replacePage(ctx, ProfessionalInfo());
       });
     } else {
