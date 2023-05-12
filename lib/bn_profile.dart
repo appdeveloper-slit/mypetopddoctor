@@ -338,8 +338,7 @@ class _MyProfileState extends State<MyProfile> {
                               color: Clr().lightGrey.withOpacity(0.1),
                               spreadRadius: 0.6,
                               blurRadius: 12,
-                              offset: Offset(
-                                  0, 0), // changes position of shadow
+                              offset: Offset(0, 0), // changes position of shadow
                             ),
                           ],
                         ),
